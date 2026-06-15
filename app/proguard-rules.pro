@@ -1,21 +1,46 @@
-# Add project specific ProGuard rules here.
-# You can control the set of applied configuration files using the
-# proguardFiles setting in build.gradle.
-#
-# For more details, see
-#   http://developer.android.com/guide/developing/tools/proguard.html
+# Room and WorkManager rules to prevent crashes in obfuscated builds
+# These libraries are used by Ads SDKs and need to be kept from being obfuscated or stripped.
 
-# If your project uses WebView with JS, uncomment the following
-# and specify the fully qualified class name to the JavaScript interface
-# class:
-#-keepclassmembers class fqcn.of.javascript.interface.for.webview {
-#   public *;
-#}
+-keep class androidx.work.** { *; }
+-keep interface androidx.work.** { *; }
+-dontwarn androidx.work.**
 
-# Uncomment this to preserve the line number information for
-# debugging stack traces.
-#-keepattributes SourceFile,LineNumberTable
+-keep class androidx.room.** { *; }
+-keep interface androidx.room.** { *; }
+-dontwarn androidx.room.**
 
-# If you keep the line number information, uncomment this to
-# hide the original source file name.
-#-renamesourcefileattribute SourceFile
+-keep class * extends androidx.room.RoomDatabase {
+    <init>(...);
+}
+
+-keep class androidx.work.impl.WorkDatabase_Impl {
+    public <init>(...);
+}
+
+-keep class androidx.work.impl.WorkManagerInitializer {
+    public <init>();
+}
+
+-keep class androidx.work.WorkManagerInitializer {
+    public <init>();
+}
+
+-keep class androidx.startup.InitializationProvider
+-keep class * implements androidx.startup.Initializer {
+    public <init>();
+}
+
+# App Specific Keep Rules
+-keep class de.szalkowski.activitylauncher.** { *; }
+-keep interface de.szalkowski.activitylauncher.** { *; }
+
+# General keep rules for reflection used by libraries
+-keepattributes Signature,AnnotationDefault,EnclosingMethod,InnerClasses,SourceFile,LineNumberTable
+
+-keep class androidx.tracing.** { *; }
+-dontwarn androidx.tracing.**
+
+-keep class kotlin.** { *; }
+-dontwarn kotlin.**
+-keep class kotlinx.** { *; }
+-dontwarn kotlinx.**

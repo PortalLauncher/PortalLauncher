@@ -18,15 +18,16 @@ android {
         versionCode = 8000
         versionName = "2.3.0"
 
-        multiDexEnabled = true
         vectorDrawables.useSupportLibrary = true
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
+    testBuildType = "release"
     flavorDimensions += listOf("distribution", "ads")
     productFlavors {
         create("oss") {
             dimension = "distribution"
             minSdk = 16
+            multiDexEnabled = true
         }
         create("playStore") {
             dimension = "distribution"
@@ -50,18 +51,26 @@ android {
     }
     signingConfigs {
         create("release") {
-            val keystorePath = providers.environmentVariable("KEYSTORE").orElse("keystore.jks")
-            storeFile = file(keystorePath)
-            storePassword = providers.environmentVariable("KEYSTORE_PASSWORD").orNull
-            keyAlias = providers.environmentVariable("KEY_ALIAS").orNull
-            keyPassword = providers.environmentVariable("KEY_PASSWORD").orNull
+            val keystorePath = providers.environmentVariable("KEYSTORE").orNull
+            if (keystorePath != null) {
+                storeFile = file(keystorePath)
+                storePassword = providers.environmentVariable("KEYSTORE_PASSWORD").orNull
+                keyAlias = providers.environmentVariable("KEY_ALIAS").orNull
+                keyPassword = providers.environmentVariable("KEY_PASSWORD").orNull
+            }
         }
     }
     buildTypes {
         release {
             isMinifyEnabled = true
             isShrinkResources = true
-            signingConfig = signingConfigs.getByName("release")
+
+            signingConfig =
+                if (providers.environmentVariable("KEYSTORE").isPresent) {
+                    signingConfigs.getByName("release")
+                } else {
+                    signingConfigs.getByName("debug")
+                }
 
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
