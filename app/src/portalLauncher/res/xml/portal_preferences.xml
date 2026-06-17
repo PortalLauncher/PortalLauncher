@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory android:title="@string/pref_launch_mode_title">
+        <ListPreference
+            android:defaultValue="0"
+            android:entries="@array/portal_launch_mode_entries"
+            android:entryValues="@array/portal_launch_mode_values"
+            android:key="launch_mode"
+            android:title="@string/pref_launch_mode_title" />
+
+        <ListPreference
+            android:defaultValue="3"
+            android:entries="@array/portal_emergency_mode_entries"
+            android:entryValues="@array/portal_emergency_mode_values"
+            android:key="emergency_mode"
+            android:summary="@string/pref_emergency_mode_summary"
+            android:title="@string/pref_emergency_mode_title" />
+
+        <Preference
+            android:key="default_launcher_info"
+            android:summary="@string/pref_default_launcher_summary"
+            android:title="@string/pref_default_launcher_title" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="startup_items_category"
+        android:title="@string/pref_startup_items_category">
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/pref_debug_category">
+        <SwitchPreference
+            android:defaultValue="false"
+            android:key="enable_debug"
+            android:title="@string/pref_debug_mode_title" />
+    </PreferenceCategory>
+
+</PreferenceScreen>

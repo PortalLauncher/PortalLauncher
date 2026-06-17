@@ -36,7 +36,7 @@ import de.szalkowski.activitylauncher.ui.PaidDialogFragment
 import javax.inject.Inject
 
 @AndroidEntryPoint
-class MainActivity : AppCompatActivity(), ActionBarSearch {
+open class MainActivity : AppCompatActivity(), ActionBarSearch {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
@@ -64,6 +64,14 @@ class MainActivity : AppCompatActivity(), ActionBarSearch {
 
     @Inject
     internal lateinit var paidReminderService: PaidReminderService
+
+    protected open val topLevelDestinations: Set<Int>
+        get() = setOf(
+            R.id.LoadingFragment,
+            R.id.PackageListFragment,
+            R.id.FavoritesFragment,
+            R.id.RecentsFragment,
+        )
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -123,14 +131,7 @@ class MainActivity : AppCompatActivity(), ActionBarSearch {
 
         // define top level destinations (no back button)
         appBarConfiguration =
-            AppBarConfiguration(
-                setOf(
-                    R.id.LoadingFragment,
-                    R.id.PackageListFragment,
-                    R.id.FavoritesFragment,
-                    R.id.RecentsFragment,
-                ),
-            )
+            AppBarConfiguration(topLevelDestinations)
         setupActionBarWithNavController(navController, appBarConfiguration)
 
         val searchContainer = findViewById<View>(R.id.searchContainer)

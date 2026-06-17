@@ -9,3 +9,4 @@ local.properties
 /ActivityLauncherApp/keystore.jks
 *.iml
 /.safedk
+gradle/gradle-daemon-jvm.properties

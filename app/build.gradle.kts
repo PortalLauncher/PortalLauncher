@@ -33,6 +33,11 @@ android {
             dimension = "distribution"
             minSdk = 24
         }
+        create("portalLauncher") {
+            dimension = "distribution"
+            applicationId = "com.github.portallauncher"
+            minSdk = 22
+        }
         create("noads") {
             dimension = "ads"
             resValue("string", "admob_banner_id", "unused")
@@ -102,6 +107,9 @@ tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach 
 
 androidComponents {
     beforeVariants(selector().withFlavor("distribution", "oss").withFlavor("ads", "ads")) {
+        it.enable = false
+    }
+    beforeVariants(selector().withFlavor("distribution", "portalLauncher").withFlavor("ads", "ads")) {
         it.enable = false
     }
 }
@@ -188,6 +196,7 @@ dependencies {
     implementation("androidx.preference:preference-ktx:1.2.1")
     implementation("com.google.dagger:hilt-android:2.59.2")
     "playStoreImplementation"("com.google.android.play:review-ktx:2.0.2")
+    "portalLauncherImplementation"("androidx.work:work-runtime-ktx:2.9.1")
 
     "adsImplementation"(platform("com.google.firebase:firebase-bom:34.14.1"))
     "adsImplementation"("com.google.firebase:firebase-analytics")

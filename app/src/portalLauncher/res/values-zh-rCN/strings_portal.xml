@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">桌面启动器</string>
+    <string name="portal_tab_title">桌面管理</string>
+    <string name="portal_settings_title">桌面管理设置</string>
+    <string name="portal_no_launcher_set">尚未设置默认桌面</string>
+    <string name="portal_current_launcher">当前桌面: %1$s</string>
+    <string name="portal_favorites_hint">点击收藏项可设为默认桌面、添加开机启动或直接启动</string>
+    <string name="portal_set_as_launcher">设为默认桌面</string>
+    <string name="portal_add_to_startup">添加开机启动</string>
+    <string name="portal_launch">启动</string>
+    <string name="portal_launcher_set">默认桌面已设为 %1$s</string>
+
+    <string name="pref_launch_mode_title">启动模式</string>
+    <string name="pref_emergency_mode_title">急救模式</string>
+    <string name="pref_emergency_mode_summary">10 秒内连续启动指定次数后，自动打开设置页面</string>
+    <string name="pref_default_launcher_title">默认桌面</string>
+    <string name="pref_default_launcher_summary">尚未配置</string>
+    <string name="pref_startup_items_category">开机启动项</string>
+    <string name="pref_debug_category">调试</string>
+    <string name="pref_debug_mode_title">调试模式</string>
+
+    <string name="startup_items_empty">暂无启动项</string>
+    <string name="startup_items_empty_hint">在桌面管理标签页中点击收藏项即可添加</string>
+    <string name="startup_item_edit_title">编辑启动项</string>
+    <string name="startup_item_type_normal">开机后启动</string>
+    <string name="startup_item_type_delayed">网络可用后启动</string>
+    <string name="startup_item_class_format">类名: %1$s</string>
+    <string name="startup_item_startup_immediate">%1$s（立即）</string>
+    <string name="startup_item_startup_delayed">%1$s（延迟 %2$d 秒）</string>
+    <string name="startup_delay_seconds">秒</string>
+    <string name="startup_delay_summary">启动前等待的秒数</string>
+    <string name="startup_type_title">启动类型</string>
+    <string name="startup_delay_title">延迟时间</string>
+    <string name="startup_delete_title">删除</string>
+    <string name="startup_delete_summary">移除此启动项</string>
+
+    <string name="portal_clear_launcher">清除默认桌面</string>
+    <string name="portal_launcher_card_hint">点击从收藏列表中选择默认桌面</string>
+    <string name="launch_mode_bring_to_front">回到前台</string>
+    <string name="launch_mode_restart">重新启动</string>
+    <string name="emergency_3_times">3 次</string>
+    <string name="emergency_4_times">4 次</string>
+    <string name="emergency_5_times">5 次</string>
+    <string name="startup_clear_all">全部清除</string>
+    <string name="startup_clear_all_message">确定移除所有启动项？</string>
+    <string name="startup_add_confirm">确定添加此应用到开机启动项？</string>
+    <string name="startup_added_toast">已添加至启动项: %1$s</string>
+</resources>

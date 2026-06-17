@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <Preference
+        android:key="startup_info"
+        android:title="Activity"
+        android:selectable="false" />
+
+    <ListPreference
+        android:key="startup_type"
+        android:title="@string/startup_type_title"
+        android:entries="@array/portal_startup_type_entries"
+        android:entryValues="@array/portal_startup_type_values"
+        android:defaultValue="0" />
+
+    <EditTextPreference
+        android:key="startup_delay"
+        android:title="@string/startup_delay_title"
+        android:summary="@string/startup_delay_summary"
+        android:inputType="number"
+        android:defaultValue="0" />
+
+    <Preference
+        android:key="startup_delete"
+        android:title="@string/startup_delete_title"
+        android:summary="@string/startup_delete_summary"
+        android:icon="@android:drawable/ic_menu_delete" />
+
+</PreferenceScreen>

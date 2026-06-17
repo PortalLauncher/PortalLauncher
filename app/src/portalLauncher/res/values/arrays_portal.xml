@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="portal_launch_mode_entries">
+        <item>Bring to front</item>
+        <item>Restart</item>
+    </string-array>
+    <string-array name="portal_launch_mode_values">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+    <string-array name="portal_emergency_mode_entries">
+        <item>3 times</item>
+        <item>4 times</item>
+        <item>5 times</item>
+    </string-array>
+    <string-array name="portal_emergency_mode_values">
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+    </string-array>
+    <string-array name="portal_startup_type_entries">
+        <item>@string/startup_item_type_normal</item>
+        <item>@string/startup_item_type_delayed</item>
+    </string-array>
+    <string-array name="portal_startup_type_values">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+</resources>
